@@ -1,3 +1,25 @@
+# Final Project Update:
+## JWT tokens for API requests:
+Unauthorized API requests (denied access):
+![Unauthorized API requests](images/JWT Update/Not%20authed%20request.png)
+Authorized API requests (data received):
+![Authorized API requests](images/JWT Update/Authed%20and%20requesting.png)
+## Front-End Editing Tools:
+Creating an entry:
+![Creating an entry](images/Front end editing/Create%20entry.png)
+Entry created:
+![Entry created](images/Front end editing/Entry%20created.png)
+
+Editing an entry:
+![Editing an entry](images/Front end editing/Editing%20entry.png)
+Entry edited:
+![Entry edited](images/Front end editing/Entry%20edited.png)
+
+Deleting an entry:
+![Deleting an entry](images/Front end editing/Create%20entry.png)
+Entry deleted:
+![Entry deleted](images/Front end editing/Entry%20deleted.png)
+---
 # Auth0 Update:
 ## Landing Page:
 ![Landing Page](images/Landing%20Page.png)
