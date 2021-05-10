@@ -22,6 +22,7 @@ app.use(bodyParser.json());
 
 // Require employee routes
 const citiesRoutes = require('./routes/cities.routes');
+const City = require("./models/city.model");
 
 app.engine('hbs', exphbs({
     extname: '.hbs'
@@ -87,6 +88,27 @@ app.get('/', (req, res) => {
 
 app.get('/profile', requiresAuth(), (req, res) => {
     res.send(JSON.stringify(req.oidc.user));
+});
+
+app.get('/edit/:id', requiresAuth(), (req, res) => {
+    City.findById(req.params.id, function(err, city) {
+        if (err)
+            res.send(err);
+        res.render('edit',{showLogout: true, city: city[0], id: req.params.id});
+    });
+});
+
+app.post('/edit', requiresAuth(), (req, res) => {
+    const {id, fldName, fldLat, fldLong, fldCountry, fldAbbreviation, fldCapitalStatus, fldPopulation} = req.body;
+    City.update(id, {fldName, fldLat, fldLong, fldCountry, fldAbbreviation, fldCapitalStatus, fldPopulation}, function (err, city){
+        if(err){
+            res.render('edit', {showLogout: true, city: {fldName, fldLat, fldLong, fldCountry, fldAbbreviation, fldCapitalStatus, fldPopulation}, id: id,
+            message: err, messageClass: 'alert-danger'});
+        }
+        else {
+            res.render('protected');
+        }
+    });
 });
 
 app.listen(app.get('port'), function() {
