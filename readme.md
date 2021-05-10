@@ -1,24 +1,24 @@
 # Final Project Update:
 ## JWT tokens for API requests:
 Unauthorized API requests (denied access):
-![Unauthorized API requests](images/JWT Update/Not%20authed%20request.png)
+![Unauthorized API requests](images/JWT%20Update/Not%20authed%20request.png)
 Authorized API requests (data received):
-![Authorized API requests](images/JWT Update/Authed%20and%20requesting.png)
+![Authorized API requests](images/JWT%20Update/Authed%20and%20requesting.png)
 ## Front-End Editing Tools:
-Creating an entry:
-![Creating an entry](images/Front end editing/Create%20entry.png)
+Creating an entry (by clicking on big "Create Entry" button on table page):
+![Creating an entry](images/Front%20end%20editing/Create%20entry.png)
 Entry created:
-![Entry created](images/Front end editing/Entry%20created.png)
+![Entry created](images/Front%20end%20editing/Entry%20created.png)
 
 Editing an entry:
-![Editing an entry](images/Front end editing/Editing%20entry.png)
+![Editing an entry](images/Front%20end%20editing/Editing%20entry.png)
 Entry edited:
-![Entry edited](images/Front end editing/Entry%20edited.png)
+![Entry edited](images/Front%20end%20editing/Entry%20edited.png)
 
 Deleting an entry:
-![Deleting an entry](images/Front end editing/Create%20entry.png)
+![Deleting an entry](images/Front%20end%20editing/Deleting%20Entry.png)
 Entry deleted:
-![Entry deleted](images/Front end editing/Entry%20deleted.png)
+![Entry deleted](images/Front%20end%20editing/Entry%20deleted.png)
 ---
 # Auth0 Update:
 ## Landing Page:
@@ -27,7 +27,7 @@ Entry deleted:
 ![Auth0 Prompt](images/Auth0%20prompt.png)
 Signing in with Google:
 ![Signing in with Google](images/signing%20in%20with%20google.png)
-##Sign In Successful
+## Sign In Successful:
 ![Sign In Successful](images/Signed%20in%20successfully.png)
 *Logging out brings you back to the landing page, there is no way to get to the table display without being signed in*
 ---
