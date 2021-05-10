@@ -106,7 +106,20 @@ app.post('/edit', requiresAuth(), (req, res) => {
             message: err, messageClass: 'alert-danger'});
         }
         else {
-            res.render('protected');
+            res.render('protected', {showLogout: true});
+        }
+    });
+});
+
+app.post('/delete', requiresAuth(), (req, res) => {
+    const {id} = req.body;
+    City.delete(id, function (err, city){
+        if(err){
+            res.render('protected', {showLogout: true,
+                message: err, messageClass: 'alert-danger'});
+        }
+        else {
+            res.render('protected', {showLogout: true, message: "City successfully deleted!", messageClass: 'alert-success'});
         }
     });
 });
