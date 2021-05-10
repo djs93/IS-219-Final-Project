@@ -24,6 +24,13 @@ export default class DataFuncs{
                 let text = document.createTextNode(element[key]);
                 cell.appendChild(text);
             }
+            let cell = row.insertCell();
+            let button = document.createElement("button");
+            button.addEventListener('click',ev => {
+                window.location=`/edit/${element['id']}`;
+            });
+            button.innerHTML = "Edit";
+            cell.appendChild(button);
         }
     }
 
