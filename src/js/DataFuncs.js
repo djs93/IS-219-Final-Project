@@ -30,6 +30,7 @@ export default class DataFuncs{
                 window.location=`/edit/${element['id']}`;
             });
             button.innerHTML = "Edit";
+            button.classList.add("btn","btn-primary")
             cell.appendChild(button);
         }
     }
