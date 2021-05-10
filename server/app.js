@@ -106,7 +106,7 @@ app.post('/edit', requiresAuth(), (req, res) => {
             message: err, messageClass: 'alert-danger'});
         }
         else {
-            res.render('protected', {showLogout: true});
+            res.render('protected', {showLogout: true, message: "City successfully edited!", messageClass: 'alert-success'});
         }
     });
 });
@@ -120,6 +120,18 @@ app.post('/delete', requiresAuth(), (req, res) => {
         }
         else {
             res.render('protected', {showLogout: true, message: "City successfully deleted!", messageClass: 'alert-success'});
+        }
+    });
+});
+
+app.post('/create_new', requiresAuth(), (req, res) => {
+    City.create({fldName:null,fldLat:null,fldLong:null,fldCountry:null,fldAbbreviation:null,fldCapitalStatus:null,fldPopulation:null}, function (err, new_id){
+        if(err){
+            res.render('protected', {showLogout: true,
+                message: err, messageClass: 'alert-danger'});
+        }
+        else {
+            res.render('edit', {showLogout: true, id: new_id, creating_new:true});
         }
     });
 });
