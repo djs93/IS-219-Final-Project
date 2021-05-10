@@ -49,7 +49,13 @@
             </div>
 
             <div class="row justify-content-md-center w-50 mx-auto" style="margin-top: 20px">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Commit Edit</button>
+            </div>
+        </form>
+        <form action="/delete" method="post">
+            <input type="hidden" name="id" value="{{id}}"/>
+            <div class="row justify-content-md-center w-25 mx-auto" style="margin-top: 20px">
+                <button class="btn btn-danger" type="submit">Delete Entry</button>
             </div>
         </form>
     </div>
