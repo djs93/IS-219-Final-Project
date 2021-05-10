@@ -106,7 +106,7 @@ app.post('/edit', requiresAuth(), (req, res) => {
             message: err, messageClass: 'alert-danger'});
         }
         else {
-            res.render('protected', {showLogout: true, message: "City successfully edited!", messageClass: 'alert-success'});
+            res.render('protected', {showLogout: true, message: 'City successfully edited!', messageClass: 'alert-success'});
         }
     });
 });
