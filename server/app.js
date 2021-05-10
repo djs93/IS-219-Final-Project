@@ -6,9 +6,13 @@ const app = express();
 const open = require("open");
 const bodyParser = require('body-parser');
 const { requiresAuth } = require('express-openid-connect');
-var cors = require('cors')
+const cookieParser = require('cookie-parser');
+const request = require("request");
+const cors = require('cors')
 app.use(cors());
 app.use(express.static('docs'));
+
+app.use(cookieParser());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -45,6 +49,31 @@ const config = {
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config));
+
+app.use(function (req, res, next) {
+    // check if client sent cookie
+    let cookie = req.cookies.jwtToken;
+    if (cookie === undefined) {
+        let token;
+        // no: set a new cookie
+        let options = { method: 'POST',
+            url: 'https://djs93.us.auth0.com/oauth/token',
+            headers: { 'content-type': 'application/json' },
+            body: `{"client_id":"${process.env.AUTH0_CLIENT_ID}","client_secret":"${process.env.AUTH0_CLIENT_SECRET}","audience":"http://localhost:8000","grant_type":"client_credentials"}` };
+
+        request(options, function (error, response, body) {
+            if (error) throw new Error(error);
+            token = JSON.parse(body).access_token;
+            console.log(body);
+            res.cookie('jwtToken',token, { maxAge: 900000});
+            next(); // <-- important!
+        });
+    } else {
+        // yes, cookie was already present
+        console.log('cookie exists', cookie);
+        next(); // <-- important!
+    }
+});
 
 // req.isAuthenticated is provided from the auth router
 app.get('/', (req, res) => {
