@@ -8,6 +8,10 @@ export default class DataFuncs{
             th.appendChild(text);
             row.appendChild(th);
         }
+        let th = document.createElement("th");
+        let text = document.createTextNode("Edit");
+        th.appendChild(text);
+        row.appendChild(th);
     }
 
     static _generateTableBody(table, data) {
